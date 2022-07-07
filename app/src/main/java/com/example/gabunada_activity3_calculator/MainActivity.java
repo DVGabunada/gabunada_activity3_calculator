@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Button nine;
     Button zero;
 
+
+    /**Parenthesis, Exponent and plus/Minus not added: not relevant**/
     Button clear;
     Button parenthesis;
     Button exponent;
@@ -172,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                     mult = true;
                     operand = true;
                     dot = false;
+
                 }
             }
         });
@@ -237,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                 if (str.length() >= 1) {
                     str = str.substring(0, str.length() - 1);
                     display.setText(str);
-                } else if (str.length() <= 1) {
+                } else if (str.length() < 1) {
                     display.setText("");
                 }
             }

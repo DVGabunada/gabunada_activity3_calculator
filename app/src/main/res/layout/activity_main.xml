@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/grey">
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -43,7 +44,8 @@
                 android:text="@string/parenthesis"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/orange">
 
             </androidx.appcompat.widget.AppCompatButton>
 
@@ -58,7 +60,8 @@
                 android:text="@string/exponent"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                tools:ignore="TextContrastCheck,TextContrastCheck">
+                tools:ignore="TextContrastCheck,TextContrastCheck"
+                android:backgroundTint="@color/orange">
 
             </androidx.appcompat.widget.AppCompatButton>
 
@@ -72,7 +75,8 @@
                 android:text="@string/divide"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                >
 
             </androidx.appcompat.widget.AppCompatButton>
         </TableRow>
@@ -284,7 +288,8 @@
                 android:text="@string/plusMinus"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/orange">
             </androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -313,6 +318,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/orange"
                 >
 
             </androidx.appcompat.widget.AppCompatButton>
