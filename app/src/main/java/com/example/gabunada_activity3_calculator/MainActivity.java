@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Button point;
     Button plusMinus;
 
-    Button backspace;
+    ImageButton backspace;
 
     float num1,num2;
 
@@ -221,6 +222,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        backspace = (ImageButton) findViewById(R.id.backspacebtn);
+        backspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String str = display.getText().toString();
+
+
+                int index = str.length() - 1;
+                char period = str.charAt(index);
+                if(period == '.'){
+                    dot = false;
+                }
+                if (str.length() >= 1) {
+                    str = str.substring(0, str.length() - 1);
+                    display.setText(str);
+                } else if (str.length() <= 1) {
+                    display.setText("");
+                }
+            }
+        });
 
     }
 

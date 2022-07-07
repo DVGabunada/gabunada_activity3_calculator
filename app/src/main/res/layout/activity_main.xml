@@ -352,7 +352,7 @@
         tools:ignore="LabelFor" />
 
     <ImageButton
-        android:id="@+id/backspace"
+        android:id="@+id/backspacebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
