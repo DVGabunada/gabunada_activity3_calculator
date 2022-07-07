@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button backspace;
 
-    boolean plus,minus,mult,div;
-    String first;
+    float num1,num2;
+
+    boolean plus,minus,mult,div,dot,operand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,90 +51,80 @@ public class MainActivity extends AppCompatActivity {
         one.setOnClickListener(new View.OnClickListener(){
             @SuppressLint("SetTextI18n")
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "1");
+                display.setText(display.getText() + "1");
             }
         });
 
         two = (Button) findViewById(R.id.twobtn);
         two.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "2");
+                display.setText(display.getText() + "2");
             }
         });
 
         three = (Button) findViewById(R.id.threebtn);
         three.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "3");
+                display.setText(display.getText() + "3");
             }
         });
 
         four = (Button) findViewById(R.id.fourbtn);
         four.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "4");
+                display.setText(display.getText() + "4");
             }
         });
 
         five = (Button) findViewById(R.id.fivebtn);
         five.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "5");
+                display.setText(display.getText() + "5");
             }
         });
 
         six = (Button) findViewById(R.id.sixbtn);
         six.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "6");
+                display.setText(display.getText() + "6");
             }
         });
 
         seven = (Button) findViewById(R.id.sevenbtn);
         seven.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "7");
+                display.setText(display.getText() + "7");
             }
         });
 
         eight = (Button) findViewById(R.id.eightbtn);
         eight.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "8");
+                display.setText(display.getText() + "8");
             }
         });
 
         nine = (Button) findViewById(R.id.ninebtn);
         nine.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "9");
+                display.setText(display.getText() + "9");
             }
         });
 
         zero = (Button) findViewById(R.id.zerobtn);
         zero.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                String a;
-                a = display.getText().toString();
-                display.setText(a + "0");
+                display.setText(display.getText() + "0");
+            }
+        });
+
+        point = (Button) findViewById(R.id.pointbtn);
+        point.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                if(dot == false) {
+                    display.setText(display.getText() + ".");
+                    dot = true;
+                }
             }
         });
 
@@ -147,18 +138,89 @@ public class MainActivity extends AppCompatActivity {
 
         add = (Button) findViewById(R.id.addbtn);
         add.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                if(plus || minus || mult || div){
+            public void onClick(View v) {
+                if(!plus) {
+                    num1 = Float.parseFloat(display.getText() + "");
                     display.setText("");
-                    plus = false;
-                    minus = false;
-                    mult = false;
-                    div = false;
+                    plus = true;
+                    operand = true;
+                    dot = false;
                 }
-                first = display.getText().toString();
-                plus = true;
             }
         });
+
+        subtract = (Button) findViewById(R.id.subtractbtn);
+        subtract.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                if(!minus) {
+                    num1 = Float.parseFloat(display.getText() + "");
+                    display.setText("");
+                    minus = true;
+                    operand = true;
+                    dot = false;
+                }
+            }
+        });
+
+        multiply = (Button) findViewById(R.id.multiplybtn);
+        multiply.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                if(!mult) {
+                    num1 = Float.parseFloat(display.getText() + "");
+                    display.setText("");
+                    mult = true;
+                    operand = true;
+                    dot = false;
+                }
+            }
+        });
+        divide = (Button) findViewById(R.id.dividebtn);
+        divide.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                if(!div) {
+                    num1 = Float.parseFloat(display.getText() + "");
+                    display.setText("");
+                    div = true;
+                    operand = true;
+                    dot = false;
+                }
+            }
+        });
+
+        equals = (Button) findViewById(R.id.equalsbtn);
+        equals.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                if (operand) {
+                    if (plus) {
+                        num2 = Float.parseFloat(display.getText() + "");
+                        num1 += num2;
+                        display.setText(Float.toString(num1));
+                        plus = false;
+                    }else if(minus){
+                        num2 = Float.parseFloat(display.getText() + "");
+                        num1 -= num2;
+                        display.setText(Float.toString(num1));
+                        minus = false;
+
+                    }else if(mult){
+                        num2 = Float.parseFloat(display.getText() + "");
+                        num1 *= num2;
+                        display.setText(Float.toString(num1));
+                        mult = false;
+
+                    }else if(div){
+                        num2 = Float.parseFloat(display.getText() + "");
+                        num1 /= num2;
+                        display.setText(Float.toString(num1));
+                        div = false;
+
+                    }
+                    operand = false;
+
+                }
+            }
+        });
+
 
     }
 
